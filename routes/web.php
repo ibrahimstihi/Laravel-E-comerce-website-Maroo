@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
 
 //Email Verifiv=cation
 Route::get('/activate/{code}',[App\Http\Controllers\ActivationController::class, 'activateUserAccount'])->name('user.activate');
@@ -36,7 +36,7 @@ Route::get('/activate/{email}',[App\Http\Controllers\ActivationController::class
 //displayProduct
 Route::resource('products',ProductController::class);
 Route::get('/products/category/{category}',[App\Http\Controllers\HomeController::class, 'getProductByCategory'])->name('category.products');
-Route::get('/products/categorymm/{product}',[App\Http\Controllers\ProductController::class, 'Show'])->name('product.show');
+Route::get('/products/categorymm/{product}',[App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
 //Cart Routes
 Route::get('/cart',[App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
 Route::post('/add/cart/{product}',[App\Http\Controllers\CartController::class, 'addProductToCart'])->name('cart.add');
