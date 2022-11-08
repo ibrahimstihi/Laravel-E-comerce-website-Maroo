@@ -18,7 +18,7 @@
                             $firstSlide = $slide;
                         }
                       ?>
-
+                    @if(!$slides->isEmpty())
                     <div class="carousel-item position-relative active" style="height: 430px;">
                          <img class="position-absolute w-100 h-100" src="{{ asset($firstSlide->image) }}" style="object-fit: cover;">
                          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -29,6 +29,7 @@
                            </div>
                          </div>
                     </div>
+                    @endif
                       @foreach ($slides as $slide)
                         @if($slide != $firstSlide)
                          <div class="carousel-item position-relative" style="height: 430px;">
