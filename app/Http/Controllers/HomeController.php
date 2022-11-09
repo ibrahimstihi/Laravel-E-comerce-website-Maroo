@@ -40,4 +40,10 @@ class HomeController extends Controller
             "categories"=>Category::has("products")->get()
         ]);
     }
+    public function showContact(){
+        return view('contact')->with([
+            "categories"=>Category::has("products")->get(),
+            "items"=>\Cart::getContent(),
+        ]); 
+    }
 }

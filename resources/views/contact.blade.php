@@ -1,3 +1,17 @@
+@extends('layouts.layout')
+@section('content')
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/home">Home</a>
+                <span class="breadcrumb-item active">Contact</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
 <div class="container-fluid">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Contact Us</span></h2>
     <div class="row px-xl-5">
@@ -27,8 +41,9 @@
                         <p class="help-block text-danger"></p>
                     </div>
                     <div>
-                        <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Send
-                            Message</button>
+                        <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">
+                            Send Message
+                        </button>
                     </div>
                 </form>
             </div>
@@ -47,3 +62,4 @@
         </div>
     </div>
 </div>
+@endsection

@@ -67,8 +67,8 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="col-md-12 form-group justify-content-center">
-                        <button type="submit" class="col-md-3 btn-primary">Submit</button>
+                    <div class="col-md-12 form-group">
+                        <button type="submit" class="btn btn-primary py-2 px-4">Submit</button>
                     </div>
                 </div>
                 </form>

@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes(['login' => false,'register'=>false]);
+// Auth::routes(['login' => false,'register'=>false]);
 
 Route::get('/', function () {
     return view('welcome')->with([
@@ -33,7 +33,8 @@ Route::get('sign up', [App\Http\Controllers\Auth\RegisterController::class, 'sho
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'showContact'])->name('show.contact'); 
 
 //Email Verifiv=cation
 Route::get('/activate/{code}',[App\Http\Controllers\ActivationController::class, 'activateUserAccount'])->name('user.activate');
