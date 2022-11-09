@@ -44,8 +44,8 @@
                           <div class="btn-group">
                             <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                             <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('login') }}" >Sign in</a>
-                            <a class="dropdown-item" href="{{ route('register') }}" >Sign up</a>
+                            <a class="dropdown-item" href="{{ route('signin') }}" >Sign in</a>
+                            <a class="dropdown-item" href="{{ route('signup') }}" >Sign up</a>
                           </div>
                         @else
                         <a href="#" role="button">

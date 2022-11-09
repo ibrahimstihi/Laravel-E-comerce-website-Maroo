@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\category;
+use App\Models\slide;
+
 class HomeController extends Controller
 {
     /**
@@ -28,6 +30,7 @@ class HomeController extends Controller
             "products"=>Product::latest()->paginate(8),
             "categories"=>Category::has("products")->get(),
             "items"=>\Cart::getContent(),
+            "slides"=>slide::all()
         ]);
     }
     public function getProductByCategory(Category $category){

@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['login' => false,'register'=>false]);
 
 Route::get('/', function () {
     return view('welcome')->with([
@@ -25,6 +26,10 @@ Route::get('/', function () {
         "items"=>\Cart::getContent()
     ]);
 });
+
+// Login Routes
+Route::get('signin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'] )->name('signin');
+Route::get('sign up', [App\Http\Controllers\Auth\RegisterController::class, 'showSignUpForm'] )->name('signup');
 
 Auth::routes();
 

@@ -6,6 +6,7 @@ use App\Mail\ActivateYourAccount;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\category;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -93,4 +94,12 @@ class RegisterController extends Controller
         return redirect("/login")
                ->withInfo("veillez confirmer votre Email le code est envoye");
     }
+
+    public function showSignUpForm(){
+        return view('auth.register')->with([
+            "categories"=>category::all(),
+            "items"=>\Cart::getContent(),
+        ]);
+    }
+
 }
