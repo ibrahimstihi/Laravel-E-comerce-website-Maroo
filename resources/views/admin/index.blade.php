@@ -103,6 +103,12 @@
                         </a>
                         </li>
                         <li>
+                            <a href="{{ route('add.offer') }}">
+                                <i class='fas fa-plus-circle'></i>
+                                Add New Offer
+                        </a>
+                        </li>
+                        <li>
                             
                             <a href="{{ route('edit.slide') }}">
                                 <i class='fas fa-edit'></i> 
@@ -111,7 +117,26 @@
                         </li>
                     </ul>
                 </li>
-                
+                <li>
+                    <a href="#brandSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class='fas fa-align-right'></i>
+                        <span>Brands</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="brandSubmenu">
+                        <li>
+                            <a href="{{ route('add.brand') }}">
+                                <i class='fas fa-plus-circle'></i>
+                                Add brand
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('index.brand') }}">
+                                <i class='fas fa-edit'></i>
+                                all brand
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

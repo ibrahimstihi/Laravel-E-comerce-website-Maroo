@@ -3,7 +3,7 @@
        <!-- Carousel Start -->
        <div class="container-fluid mb-3">
         <div class="row px-xl-5">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-lg-4">
+            <div class="col-lg-4">
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="{{ asset('img/offer-1.jpg') }}" alt="">
                     <div class="offer-text">
@@ -64,7 +64,7 @@
                         <a href="" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
     <!-- Carousel End -->
@@ -189,30 +189,11 @@
             <div class="row px-xl-5">
                 <div class="col">
                     <div class="owl-carousel vendor-carousel">
+                        @foreach($brands as $brand)
                         <div class="bg-light p-4">
-                            <img src="img/vendor-1.jpg" alt="">
+                            <img src="{{$brand->logo}}" alt="{{$brand->title}}">
                         </div>
-                        <div class="bg-light p-4">
-                            <img src="img/vendor-2.jpg" alt="">
-                        </div>
-                        <div class="bg-light p-4">
-                            <img src="img/vendor-3.jpg" alt="">
-                        </div>
-                        <div class="bg-light p-4">
-                            <img src="img/vendor-4.jpg" alt="">
-                        </div>
-                        <div class="bg-light p-4">
-                            <img src="img/vendor-5.jpg" alt="">
-                        </div>
-                        <div class="bg-light p-4">
-                            <img src="img/vendor-6.jpg" alt="">
-                        </div>
-                        <div class="bg-light p-4">
-                            <img src="img/vendor-7.jpg" alt="">
-                        </div>
-                        <div class="bg-light p-4">
-                            <img src="{{ asset('img/vendor-8.jpg') }}" alt="">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

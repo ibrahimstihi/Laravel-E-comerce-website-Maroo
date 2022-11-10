@@ -15,6 +15,9 @@ class SlideController extends Controller
     public function addSlide(){
         return view('admin.pages.slide.add');
     }
+    public function addOffer(){
+        return view('admin.pages.slide.addOffer');
+    }
     public function editSlide(){
         return view('admin.pages.slide.edit')->with([
             'slides'=>Slide::all(),
@@ -49,6 +52,35 @@ class SlideController extends Controller
         ]);
     return redirect()->route("edit.slide")
         ->withSuccess("Slide added");
+    }
+
+    public function storeOffer(Request $request)
+    {
+         //validation
+         $this->validate($request, [
+            "title" => "required|min:3",
+            "description" => "required|min:5",
+            "image" => "required|mimes:png,jpg,jpeg|max:2048",
+            "link" => "required",
+        ]);
+       //add data image
+        if ($request->has("image")) {
+            $file = $request->image ;
+            $imageName = "images/slides/" . time() . "_" . $file->getClientOriginalName();
+            $file->move(public_path("images/slides"), $imageName);
+        }
+
+        $offer = Slide::create([
+            "title" => $request->title,
+            "description" => $request->description,
+            "link" => $request->link,
+            "image" => $imageName,
+        ]);
+   
+        $offer->is_offer = 1;
+        $offer->save();
+    return redirect()->route("edit.slide")
+        ->withSuccess("offer added");
     }
     
     public function update(Request $request, slide $slide)

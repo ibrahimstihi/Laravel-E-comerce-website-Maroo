@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\category;
 use App\Models\slide;
-
+use App\Models\brand;
 class HomeController extends Controller
 {
     /**
@@ -30,6 +30,7 @@ class HomeController extends Controller
             "products"=>Product::latest()->paginate(8),
             "categories"=>Category::has("products")->get(),
             "items"=>\Cart::getContent(),
+            "brands"=>brand::all(),
             "slides"=>slide::all()
         ]);
     }

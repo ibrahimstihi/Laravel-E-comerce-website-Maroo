@@ -77,6 +77,9 @@ class AdminControler extends Controller
         ]);
     }
 
+    //Brands 
+    
+
     
     
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\product;
 use App\Models\category;
 use App\Models\slide;
+use App\Models\brand;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -23,6 +24,7 @@ Route::get('/', function () {
         "products"=>Product::latest()->paginate(8),
         "categories"=>Category::has("products")->get(),
         "slides"=>Slide::all(),
+        "brands"=>brand::all(),
         "items"=>\Cart::getContent()
     ]);
 });
@@ -89,9 +91,16 @@ Route::prefix('admin/dashboard')->group(function () {
 
     Route::get('Add New slide', [App\Http\Controllers\SlideController::class, 'addSlide'])->name('add.slide');
     Route::post('create slide', [App\Http\Controllers\SlideController::class, 'store'])->name('store.slide');
+    Route::get('Add New offer', [App\Http\Controllers\SlideController::class, 'addOffer'])->name('add.offer');
+    Route::post('create offer', [App\Http\Controllers\SlideController::class, 'storeOffer'])->name('store.offer');
     Route::get('All Slides', [App\Http\Controllers\SlideController::class, 'editSlide'])->name('edit.slide');
     Route::get('Update slide/{slide}', [App\Http\Controllers\SlideController::class, 'edit'])->name('update.slide');
     Route::put('Post Update slide/{slide}', [App\Http\Controllers\SlideController::class, 'update'])->name('post.update.slide');
     Route::delete('Delete Slide/{slide}', [App\Http\Controllers\SlideController::class, 'destroy'])->name('delete.slide');
+
+    Route::get('All Brands', [App\Http\Controllers\brandController::class, 'index'])->name('index.brand');
+    Route::get('Add Brand', [App\Http\Controllers\brandController::class, 'create'])->name('add.brand');
+    Route::post('create Category/', [App\Http\Controllers\brandController::class, 'store'])->name('store.brand');
+    Route::delete('Delete Brnad/{brand}', [App\Http\Controllers\brandController::class, 'destroy'])->name('delete.brand');
 
 });
