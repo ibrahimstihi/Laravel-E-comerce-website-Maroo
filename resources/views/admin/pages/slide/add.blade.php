@@ -1,5 +1,24 @@
 @extends('admin.index')
 @section('content')
+
+@section('content')
+
+@if (session()->has('success'))
+    <h1>{{ session('success') }}</h1>
+@endif
+    <!-- Breadcrumb Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-light mb-30">
+                    <a class="breadcrumb-item text-dark" href="#">Dashboard</a>
+                    <a class="breadcrumb-item text-dark" href="#">Slides & offers</a>
+                    <span class="breadcrumb-item active">Add New Slide</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
 <section>
 @if($errors->any())
   

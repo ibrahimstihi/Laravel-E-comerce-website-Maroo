@@ -85,7 +85,7 @@ class ProductController extends Controller
             ]);
         }
         }
-        return redirect()->route("edit.product")
+        return redirect()->route("add.product")
         ->withSuccess("Product added");
     }
 

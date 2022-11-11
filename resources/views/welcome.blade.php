@@ -15,7 +15,7 @@
                     
                       <?php
                         foreach ($slides as $slide){
-                            $firstSlide = $slide;
+                              $firstSlide = $slide;
                         }
                       ?>
                     @if(!$slides->isEmpty())
@@ -31,7 +31,7 @@
                     </div>
                     @endif
                       @foreach ($slides as $slide)
-                        @if($slide != $firstSlide)
+                        @if($slide!=$firstSlide)
                          <div class="carousel-item position-relative" style="height: 430px;">
                             <img class="position-absolute w-100 h-100" src="{{ asset($slide->image) }}" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -41,29 +41,23 @@
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ $slide->link }}">Shop Now</a>
                                 </div>
                             </div>
-                         </div>
-                        @endif 
+                         </div> 
+                         @endif
                       @endforeach
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
+            @foreach ($offers as $offer)
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="{{ asset('img/offer-1.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset($offer->image) }}" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <h6 class="text-white text-uppercase">{{$offer->title}}</h6>
+                        <h3 class="text-white mb-3">{{$offer->description}}</h3>
+                        <a href="{{$offer->link}}" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="{{ asset('img/offer-2.jpg') }}" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
+            @endforeach
             </div>
         </div>
     </div>
@@ -158,30 +152,24 @@
         <!-- Products End -->
 
             <!-- Offer Start -->
+    
     <div class="container-fluid pt-5 pb-3">
         <div class="row px-xl-5">
+          @foreach ($offers as $offer)  
             <div class="col-md-6">
                 <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{{ asset('img/offer-1.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset($offer->image) }}" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <h6 class="text-white text-uppercase">{{$offer->title}}</h6>
+                        <h3 class="text-white mb-3">{{$offer->description}}</h3>
+                        <a href="{{$offer->link}}" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{{ asset('img/offer-2.jpg') }}" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
-            </div>
+          @endforeach
         </div>
     </div>
+
     <!-- Offer End -->
 
         <!-- Vendor Start -->

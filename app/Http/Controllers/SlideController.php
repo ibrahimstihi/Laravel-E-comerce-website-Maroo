@@ -50,8 +50,8 @@ class SlideController extends Controller
             "link" => $request->link,
             "image" => $imageName,
         ]);
-    return redirect()->route("edit.slide")
-        ->withSuccess("Slide added");
+    return redirect()->route('add.slide')
+        ->with('message', 'Slide added succesfuly');;
     }
 
     public function storeOffer(Request $request)
@@ -75,10 +75,9 @@ class SlideController extends Controller
             "description" => $request->description,
             "link" => $request->link,
             "image" => $imageName,
+            "is_offer"=>1
         ]);
    
-        $offer->is_offer = 1;
-        $offer->save();
     return redirect()->route("edit.slide")
         ->withSuccess("offer added");
     }

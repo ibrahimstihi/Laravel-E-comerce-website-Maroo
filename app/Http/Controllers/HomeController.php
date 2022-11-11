@@ -31,7 +31,8 @@ class HomeController extends Controller
             "categories"=>Category::has("products")->get(),
             "items"=>\Cart::getContent(),
             "brands"=>brand::all(),
-            "slides"=>slide::all()
+            "slides"=>Slide::all()->where('is_offer','=',0),
+            "offers"=>Slide::all()->where('is_offer','=',1),
         ]);
     }
     public function getProductByCategory(Category $category){

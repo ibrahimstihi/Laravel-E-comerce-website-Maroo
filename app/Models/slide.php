@@ -14,6 +14,7 @@ class slide extends Model
         'link',
         'image',
         'title',
-        'description'
+        'description',
+        'is_offer'
     ];
 }

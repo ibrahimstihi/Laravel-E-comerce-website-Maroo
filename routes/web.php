@@ -23,9 +23,10 @@ Route::get('/', function () {
     return view('welcome')->with([
         "products"=>Product::latest()->paginate(8),
         "categories"=>Category::has("products")->get(),
-        "slides"=>Slide::all(),
         "brands"=>brand::all(),
-        "items"=>\Cart::getContent()
+        "items"=>\Cart::getContent(),
+        "slides"=>Slide::all()->where('is_offer','=',0),
+        "offers"=>Slide::all()->where('is_offer','=',1),
     ]);
 });
 
@@ -100,7 +101,7 @@ Route::prefix('admin/dashboard')->group(function () {
 
     Route::get('All Brands', [App\Http\Controllers\brandController::class, 'index'])->name('index.brand');
     Route::get('Add Brand', [App\Http\Controllers\brandController::class, 'create'])->name('add.brand');
-    Route::post('create Category/', [App\Http\Controllers\brandController::class, 'store'])->name('store.brand');
+    Route::post('create Brand/', [App\Http\Controllers\brandController::class, 'store'])->name('store.brand');
     Route::delete('Delete Brnad/{brand}', [App\Http\Controllers\brandController::class, 'destroy'])->name('delete.brand');
 
 });

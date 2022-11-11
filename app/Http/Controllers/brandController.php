@@ -43,7 +43,7 @@ class brandController extends Controller
                 "title" => $title,
                 "logo" => $imageName,
             ]);
-            return redirect()->route("index.brand")
+            return redirect()->route("add.brand")
                 ->withSuccess("Brand Added");
         }
     }

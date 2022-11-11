@@ -61,7 +61,7 @@ class CategoryController extends Controller
                 "slug" => Str::slug($title),
                 "icon" => $imageName,
             ]);
-            return redirect()->route("edit.category")
+            return redirect()->route("add.category")
                 ->withSuccess("Category added");
         }
     }
