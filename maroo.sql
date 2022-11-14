@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 10 nov. 2022 à 13:34
+-- Généré le : lun. 14 nov. 2022 à 11:27
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -43,7 +43,36 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'brahim', 'ibrahimstihi2015@gmail.com', '2022-11-08 11:36:20', '$2y$10$vA/3zcZkQk5O4L4bugzWjOt5URNUJI/SvAR42S1HaJehtbMYKxF72', 'vR8vyPBgu9ozjyVQbH249nf2PTGwvcVD2XRZdRGRbJNf3bWVzpMzqevZhIK8', '2022-11-08 11:36:20', '2022-11-08 11:36:20');
+(1, 'brahim', 'ibrahimstihi2015@gmail.com', '2022-11-10 16:02:58', '$2y$10$Ri45Lfb9eUQVY5PnMjvKSuZxEP3SBh0YAV88HGo6heImzc77ICWK.', 'VQKuhIYqHu', '2022-11-10 16:02:58', '2022-11-10 16:02:58');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `brands`
+--
+
+INSERT INTO `brands` (`id`, `title`, `logo`, `created_at`, `updated_at`) VALUES
+(5, 'apple', 'images/brands/1668182218_Brand logo(7).png', '2022-11-11 14:56:58', '2022-11-11 14:56:58'),
+(6, 'canon', 'images/brands/1668182227_Brand logo(6).png', '2022-11-11 14:57:07', '2022-11-11 14:57:07'),
+(7, 'huawei', 'images/brands/1668182238_Brand logo(4).png', '2022-11-11 14:57:18', '2022-11-11 14:57:18'),
+(8, 'cisco', 'images/brands/1668182246_Brand logo(5).png', '2022-11-11 14:57:26', '2022-11-11 14:57:26'),
+(9, 'lenovo', 'images/brands/1668182504_Brand logo(3).png', '2022-11-11 15:01:44', '2022-11-11 15:01:44'),
+(10, 'sumsung', 'images/brands/1668182514_Brand logo(1).png', '2022-11-11 15:01:54', '2022-11-11 15:01:54'),
+(11, 'msi', 'images/brands/1668182520_Brand logo(2).png', '2022-11-11 15:02:00', '2022-11-11 15:02:00'),
+(12, 'soney', 'images/brands/1668182529_Brand logo.png', '2022-11-11 15:02:09', '2022-11-11 15:02:09'),
+(13, 'accessoir', 'images/brands/1668184328_accessoir.png', '2022-11-11 15:32:08', '2022-11-11 15:32:08');
 
 -- --------------------------------------------------------
 
@@ -65,12 +94,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `icon`, `created_at`, `updated_at`) VALUES
-(2, 'Laptopes', 'laptopes', 'images/categories/1668079458_laptope.jpg', '2022-11-10 10:24:18', '2022-11-10 10:24:18'),
-(3, 'Phones', 'phones', 'images/categories/1668079471_phone.png', '2022-11-10 10:24:31', '2022-11-10 10:24:31'),
-(4, 'Smart Watch', 'smart-watch', 'images/categories/1668079483_smart watch.png', '2022-11-10 10:24:43', '2022-11-10 10:24:43'),
-(5, 'Accessoires', 'accessoires', 'images/categories/1668079514_accessoir.png', '2022-11-10 10:25:14', '2022-11-10 10:25:14'),
-(6, 'headphone', 'headphone', 'images/categories/1668079529_headphone.png', '2022-11-10 10:25:29', '2022-11-10 10:25:29'),
-(7, 'Camera', 'camera', 'images/categories/1668080378_camera.jpg', '2022-11-10 10:39:38', '2022-11-10 10:39:38');
+(1, 'accessoir', 'accessoir', 'images/categories/1668185558_accessoir.png', '2022-11-11 15:52:38', '2022-11-11 15:52:38'),
+(2, 'camera', 'camera', 'images/categories/1668185585_camera.jpg', '2022-11-11 15:53:05', '2022-11-11 15:53:05'),
+(3, 'headphone', 'headphone', 'images/categories/1668185593_headphone.png', '2022-11-11 15:53:13', '2022-11-11 15:53:13'),
+(4, 'laptope', 'laptope', 'images/categories/1668185604_laptope.jpg', '2022-11-11 15:53:24', '2022-11-11 15:53:24'),
+(5, 'phone', 'phone', 'images/categories/1668185610_phone.png', '2022-11-11 15:53:30', '2022-11-11 15:53:30'),
+(6, 'smart watch', 'smart-watch', 'images/categories/1668185620_smart watch.png', '2022-11-11 15:53:40', '2022-11-11 15:53:40');
 
 -- --------------------------------------------------------
 
@@ -114,7 +143,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2022_10_13_164053_create_orders_table', 1),
 (8, '2022_10_14_142018_create__admin_table', 1),
 (9, '2022_10_29_112029_create_product_images_table', 1),
-(10, '2022_11_03_163607_create_slides_table', 1);
+(10, '2022_11_03_163607_create_slides_table', 1),
+(11, '2022_11_10_153126_create_brands_table', 1);
 
 -- --------------------------------------------------------
 
@@ -191,16 +221,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `slug`, `description`, `price`, `old_price`, `inStock`, `qty`, `created_at`, `updated_at`, `category_id`) VALUES
-(2, 'Airpuds apple', 'airpuds-apple', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '199.00', '0.00', 200, 0, '2022-11-10 10:27:16', '2022-11-10 10:27:16', 6),
-(3, 'headphone hieght quality', 'headphone-hieght-quality', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '299.00', '0.00', 100, 0, '2022-11-10 10:28:49', '2022-11-10 10:28:49', 6),
-(4, 'gaming mouse', 'gaming-mouse', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '199.00', '0.00', 300, 0, '2022-11-10 10:30:50', '2022-11-10 10:30:50', 5),
-(5, 'sumsung S21', 'sumsung-s21', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '4999.00', '0.00', 20, 0, '2022-11-10 10:31:23', '2022-11-10 10:31:23', 3),
-(6, 'huawei p50 pro', 'huawei-p50-pro', 'display: flex;\r\njustify-content: center;\r\nalign-items: center;', '3000.00', '0.00', 20, 0, '2022-11-10 10:35:14', '2022-11-10 10:35:14', 3),
-(7, 'Msi 2022', 'msi-2022', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '7999.00', '0.00', 10, 0, '2022-11-10 10:36:30', '2022-11-10 10:36:30', 2),
-(8, 'Macbook pro 2022', 'macbook-pro-2022', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '15000.00', '0.00', 5, 0, '2022-11-10 10:37:06', '2022-11-10 10:37:06', 2),
-(9, 'gaming Keyboard', 'gaming-keyboard', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '399.00', '0.00', 20, 0, '2022-11-10 10:38:43', '2022-11-10 10:38:43', 5),
-(10, 'Lenovo Thinkpad', 'lenovo-thinkpad', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '5099.00', '0.00', 20, 0, '2022-11-10 10:39:16', '2022-11-10 10:39:16', 2),
-(11, 'Canone 2022', 'canone-2022', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', '6999.00', '0.00', 20, 0, '2022-11-10 10:40:03', '2022-11-10 10:40:03', 7);
+(1, 'product title', 'product-title', 'product description product description  product description  product description  product description  product description  product description', '144.00', '0.00', 100, 0, '2022-11-11 15:54:45', '2022-11-11 15:54:45', 3),
+(3, 'product title 2', 'product-title-2', 'product description product description  product description  product description  product description  product description  product description', '199.00', '299.00', 200, 0, '2022-11-11 15:55:42', '2022-11-11 16:01:34', 3),
+(4, 'product title 3', 'product-title-3', 'product description product description  product description  product description  product description  product description  product description', '6599.00', '7695.00', 199, 0, '2022-11-11 15:56:08', '2022-11-11 16:02:40', 2),
+(5, 'product title 4', 'product-title-4', 'product description product description  product description  product description  product description  product description  product description', '5000.00', '0.00', 111, 0, '2022-11-11 15:58:11', '2022-11-11 15:58:11', 4),
+(6, 'product 5', 'product-5', 'product description product description  product description  product description  product description  product description  product description', '15888.00', '0.00', 20, 0, '2022-11-11 15:58:53', '2022-11-11 15:58:53', 4),
+(7, 'product title 6', 'product-title-6', 'product description product description  product description  product description  product description  product description  product description', '549.00', '599.00', 88, 0, '2022-11-11 15:59:27', '2022-11-11 16:01:53', 1),
+(8, 'product title 7', 'product-title-7', 'product description product description  product description  product description  product description  product description  product description', '8999.00', '9999.00', 80, 0, '2022-11-11 16:00:12', '2022-11-11 16:02:09', 5),
+(9, 'product title 9', 'product-title-9', 'product description product description  product description  product description  product description  product description  product description', '299.00', '0.00', 70, 0, '2022-11-11 16:00:43', '2022-11-11 16:00:43', 1);
 
 -- --------------------------------------------------------
 
@@ -221,34 +249,21 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `created_at`, `updated_at`, `image`, `product_id`) VALUES
-(4, '2022-11-10 10:27:16', '2022-11-10 10:27:16', 'images/products/1668079636_air2.jpg', 2),
-(5, '2022-11-10 10:27:16', '2022-11-10 10:27:16', 'images/products/1668079636_air3.png', 2),
-(6, '2022-11-10 10:27:16', '2022-11-10 10:27:16', 'images/products/1668079636_air4.jpg', 2),
-(7, '2022-11-10 10:28:49', '2022-11-10 10:28:49', 'images/products/1668079729_head1.jpg', 3),
-(8, '2022-11-10 10:28:49', '2022-11-10 10:28:49', 'images/products/1668079729_head2.jpg', 3),
-(9, '2022-11-10 10:28:49', '2022-11-10 10:28:49', 'images/products/1668079729_head3.jpg', 3),
-(10, '2022-11-10 10:30:50', '2022-11-10 10:30:50', 'images/products/1668079850_mous1.jpg', 4),
-(11, '2022-11-10 10:30:51', '2022-11-10 10:30:51', 'images/products/1668079851_mous2.jpg', 4),
-(12, '2022-11-10 10:30:51', '2022-11-10 10:30:51', 'images/products/1668079851_mouse3.jpg', 4),
-(13, '2022-11-10 10:31:23', '2022-11-10 10:31:23', 'images/products/1668079883_su1.jpg', 5),
-(14, '2022-11-10 10:31:23', '2022-11-10 10:31:23', 'images/products/1668079883_sum.jpg', 5),
-(15, '2022-11-10 10:31:23', '2022-11-10 10:31:23', 'images/products/1668079883_sum2.jpg', 5),
-(16, '2022-11-10 10:35:14', '2022-11-10 10:35:14', 'images/products/1668080114_h1.jpg', 6),
-(17, '2022-11-10 10:35:14', '2022-11-10 10:35:14', 'images/products/1668080114_h3.jpg', 6),
-(18, '2022-11-10 10:35:14', '2022-11-10 10:35:14', 'images/products/1668080114_Huawei-P50-Pro.-02jpg.jpg', 6),
-(19, '2022-11-10 10:36:30', '2022-11-10 10:36:30', 'images/products/1668080190_ms1.jpg', 7),
-(20, '2022-11-10 10:36:30', '2022-11-10 10:36:30', 'images/products/1668080190_ms2.jpg', 7),
-(21, '2022-11-10 10:36:30', '2022-11-10 10:36:30', 'images/products/1668080190_ms3.jpg', 7),
-(22, '2022-11-10 10:37:06', '2022-11-10 10:37:06', 'images/products/1668080226_mac1.jpg', 8),
-(23, '2022-11-10 10:37:06', '2022-11-10 10:37:06', 'images/products/1668080226_mac2.jpg', 8),
-(24, '2022-11-10 10:37:06', '2022-11-10 10:37:06', 'images/products/1668080226_mac3.jpg', 8),
-(25, '2022-11-10 10:38:43', '2022-11-10 10:38:43', 'images/products/1668080323_key1.jpg', 9),
-(26, '2022-11-10 10:38:43', '2022-11-10 10:38:43', 'images/products/1668080323_key2.jpg', 9),
-(27, '2022-11-10 10:38:43', '2022-11-10 10:38:43', 'images/products/1668080323_key3.jpg', 9),
-(28, '2022-11-10 10:39:16', '2022-11-10 10:39:16', 'images/products/1668080356_lap2.jpg', 10),
-(29, '2022-11-10 10:40:03', '2022-11-10 10:40:03', 'images/products/1668080403_camera1.png', 11),
-(30, '2022-11-10 10:40:03', '2022-11-10 10:40:03', 'images/products/1668080403_camera2.jpg', 11),
-(31, '2022-11-10 10:40:03', '2022-11-10 10:40:03', 'images/products/1668080403_camera3.jpg', 11);
+(1, '2022-11-11 15:54:45', '2022-11-11 15:54:45', 'images/products/1668185685_air3.png', 1),
+(2, '2022-11-11 15:54:45', '2022-11-11 15:54:45', 'images/products/1668185685_air2.png', 1),
+(3, '2022-11-11 15:55:42', '2022-11-11 15:55:42', 'images/products/1668185742_Brand logo(21).png', 3),
+(4, '2022-11-11 15:56:08', '2022-11-11 15:56:08', 'images/products/1668185768_camera1.png', 4),
+(5, '2022-11-11 15:56:08', '2022-11-11 15:56:08', 'images/products/1668185768_Brand logo(20).png', 4),
+(6, '2022-11-11 15:56:08', '2022-11-11 15:56:08', 'images/products/1668185768_Brand logo(19).png', 4),
+(7, '2022-11-11 15:58:11', '2022-11-11 15:58:11', 'images/products/1668185891_Brand logo(12).png', 5),
+(8, '2022-11-11 15:58:53', '2022-11-11 15:58:53', 'images/products/1668185933_ms1.png', 6),
+(9, '2022-11-11 15:58:53', '2022-11-11 15:58:53', 'images/products/1668185933_ms2.png', 6),
+(10, '2022-11-11 15:58:53', '2022-11-11 15:58:53', 'images/products/1668185933_Brand logo(10).png', 6),
+(11, '2022-11-11 15:59:27', '2022-11-11 15:59:27', 'images/products/1668185967_Brand logo(13).png', 7),
+(12, '2022-11-11 16:00:13', '2022-11-11 16:00:13', 'images/products/1668186013_Brand logo(14).png', 8),
+(13, '2022-11-11 16:00:43', '2022-11-11 16:00:43', 'images/products/1668186043_mous1.png', 9),
+(14, '2022-11-11 16:00:43', '2022-11-11 16:00:43', 'images/products/1668186043_mous2.png', 9),
+(15, '2022-11-11 16:00:43', '2022-11-11 16:00:43', 'images/products/1668186043_Brand logo(11).png', 9);
 
 -- --------------------------------------------------------
 
@@ -262,6 +277,7 @@ CREATE TABLE `slides` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_offer` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -270,8 +286,12 @@ CREATE TABLE `slides` (
 -- Déchargement des données de la table `slides`
 --
 
-INSERT INTO `slides` (`id`, `title`, `description`, `link`, `image`, `created_at`, `updated_at`) VALUES
-(2, 'sllide one', 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum', '#', 'images/slides/1667917700_vegetables-set-left-black-slate.jpg', '2022-11-08 13:28:20', '2022-11-08 13:28:20');
+INSERT INTO `slides` (`id`, `title`, `description`, `link`, `image`, `is_offer`, `created_at`, `updated_at`) VALUES
+(2, 'Msi 2022', 'black friday', '#', 'images/slides/1668099945_slide5.jpg', 1, '2022-11-10 16:05:45', '2022-11-10 16:05:45'),
+(3, 'slide one', 'description', '#', 'images/slides/1668177797_slide3.jpg', 0, '2022-11-11 13:43:17', '2022-11-11 13:43:17'),
+(4, 'slide tow', 'description tow', '#', 'images/slides/1668179450_slide1.jpg', 0, '2022-11-11 14:10:50', '2022-11-11 14:10:50'),
+(6, 'save 20%', 'black friday', 'http://localhost:8000/products/categorymm/lenovo-thinkpad', 'images/slides/1668179641_slide2.jpg', 1, '2022-11-11 14:14:01', '2022-11-11 14:14:01'),
+(14, 'slide three', 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum', '#', 'images/slides/1668181158_slide4.jpg', 0, '2022-11-11 14:39:18', '2022-11-11 14:39:18');
 
 -- --------------------------------------------------------
 
@@ -300,8 +320,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `phone`, `ville`, `image`, `active`, `code`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'user', '123123', 'fes', 'img/user.jpg', 0, 'T7yrokWrHF1H8hoN27J7kK52MVAWUL7qWzobJiFkZg1idYjLd2nNnwTNPRmeUpjkzglFFrncXpIOD4h3Q0cgqJA2ktzZOi84CU7LzyLMr8i6issoe3eQbHVvmwVfWSF5', 'user@gmail.com', NULL, '$2y$10$IDLoy8sQe7S47AROBoYHROwgTh7x6mlS7XFz07OzI3XPS9wFsbMs6', NULL, '2022-11-08 14:15:30', '2022-11-08 14:15:30'),
-(2, 'brahim', '123456', 'bensouda fes', 'img/user.jpg', 0, 'wpdQbSYUeYyrGrUDAmRGl5EcaTU9FtNge4kaB1Z9Yy01iaDX8WMILkWplNCBk6sQQszpaurkgj7aH2EOtn87L1Of5aEHnAXBY536GdnT4FZXLq74LqA8o5CZBtEalxUT', 'brahim@gmail.com', NULL, '$2y$10$BV.NtOJd.5XTJQorj8GMxeTu/B0KWVqPKlov15F8Dqa5fstXj7pRS', NULL, '2022-11-09 10:16:44', '2022-11-09 10:16:45');
+(1, 'brahim', '06060606', 'fes bensouda lots alhouda etg 1 n 13', 'img/user.jpg', 0, 'S55BRi0g7rQ6gtAASSxQxGZ3tFjtvVfhQDb4LXBKqZPXZGphDaiJj5rgHIQ5OJgJuqRwJWw7sy6jfyKBYeskbdfE93cU3icL1sFaWptErUX9xtTrvfwpgyFcysCQD9RF', 'brahim@gmail.com', NULL, '$2y$10$Lu3Hr9kJeMC3.bQFVc4yae6/0AOiwPsM8IUZ/VobJWdtySk1Ttr2u', NULL, '2022-11-14 09:21:35', '2022-11-14 09:21:36');
 
 --
 -- Index pour les tables déchargées
@@ -313,6 +332,12 @@ INSERT INTO `users` (`id`, `name`, `phone`, `ville`, `image`, `active`, `code`, 
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
+-- Index pour la table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `categories`
@@ -394,10 +419,16 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT pour la table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `failed_jobs`
@@ -409,13 +440,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
@@ -427,25 +458,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

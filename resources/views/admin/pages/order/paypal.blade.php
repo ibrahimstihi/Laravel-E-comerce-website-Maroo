@@ -6,7 +6,9 @@
     <thead class="thead-light">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Client</th>
+        <th scope="col">Client phone</th>
+        <th scope="col">Client Adrese</th>
+        <th scope="col">Product name</th>
         <th scope="col">Product name</th>
         <th scope="col">Quantite</th>
         <th scope="col">Total</th>
@@ -20,6 +22,8 @@
         <tr>
             <th scope="row">{{ $order->id }}</th>
             <td>{{ $order->user->name }}</td>
+            <td>{{ $order->user->phone }}</td>
+            <td>{{ $order->user->ville }}</td>
             <td>{{ $order->product_name}}</td>
             <td>{{ $order->qty }}</td>
             <td>{{ $order->total }}</td>
