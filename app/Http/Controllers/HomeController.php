@@ -48,4 +48,15 @@ class HomeController extends Controller
             "items"=>\Cart::getContent(),
         ]); 
     }
+    public function search(Request $request){
+
+        $query = $request->input('query');
+        $products = Product::where('title','like',"%$query%")->get();
+
+        return view('search-result')->with([
+            "products"=>$products,
+            "categories"=>Category::has("products")->get(),
+            "items"=>\Cart::getContent(),
+        ]); 
+    }
 }

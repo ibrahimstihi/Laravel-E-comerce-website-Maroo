@@ -34,10 +34,13 @@ Route::get('/', function () {
 Route::get('signin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'] )->name('signin');
 Route::get('sign up', [App\Http\Controllers\Auth\RegisterController::class, 'showSignUpForm'] )->name('signup');
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'showContact'])->name('show.contact'); 
+//Search bar route
+Route::get('home/search result', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 //Email Verifiv=cation
 Route::get('/activate/{code}',[App\Http\Controllers\ActivationController::class, 'activateUserAccount'])->name('user.activate');
@@ -105,3 +108,4 @@ Route::prefix('admin/dashboard')->group(function () {
     Route::delete('Delete Brnad/{brand}', [App\Http\Controllers\brandController::class, 'destroy'])->name('delete.brand');
 
 });
+
