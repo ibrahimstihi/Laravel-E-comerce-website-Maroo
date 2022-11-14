@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="{{ asset('css/admin/admin-login.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>Admin Login</title>
 
 </head>
@@ -22,7 +23,7 @@
             <div><label for="email">Password</label></div>
             <input type="password" name="password" id="password">
             
-            <button type="submit">Login</button>
+            <button type="submit" class="btn-primary">Login</button>
         </form>
     </div>
 </body>
